@@ -7,8 +7,11 @@ import org.springframework.context.annotation.*;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-@Profile("init")
+//@Profile("init")
 @ComponentScan("org.example")
 public class InitAppConfig {
-
+    @Bean
+    public InitContacts initContacts(){
+        return new InitContacts();
+    }
 }

@@ -1,13 +1,16 @@
 package org.example.config;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import org.example.InitContacts;
+import org.springframework.context.annotation.*;
 
 @Configuration
-@PropertySource("classpath:application.properties")
-@Profile("default")
+@PropertySource("classpath:application-default.properties")
+//@Profile("default")
 @ComponentScan("org.example")
 public class AppConfig {
+
+    @Bean
+    public InitContacts initContacts(){
+        return new InitContacts();
+    }
 }

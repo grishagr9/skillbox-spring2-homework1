@@ -2,6 +2,7 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -35,19 +36,21 @@ public class WorkerContacts {
         contactList = initContacts.getContactList(filePath);
         Scanner scanner = new Scanner(System.in);
         while (true){
+            System.out.println(info);
             int change = scanner.nextInt();
             switch (change){
                 case 1:
                     printAllContacts();
-                    return;
+                    continue;
                 case 2:
                     addContact();
-                    return;
+                    continue;
                 case 3:
                     deleteContact();
-                    return;
+                    continue;
                 case 4:
                     saveToFile();
+                    continue;
                 case 5:
                     return;
             }
@@ -71,6 +74,7 @@ public class WorkerContacts {
     }
 
     private void printAllContacts(){
+        System.out.println("Все контакты:");
         for (Contact contact:contactList) {
             System.out.println(contact);
         }

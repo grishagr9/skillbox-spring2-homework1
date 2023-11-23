@@ -13,18 +13,19 @@ public class InitContacts {
     public InitContacts(){}
 
     public List<Contact> getContactList(String filePath) throws IOException {
+        System.out.println("Initialization list of contacts "+ filePath);
         if(filePath == null){
             return new ArrayList<>();
         }
         List<Contact> contactList = new ArrayList<>();
 
         File file = new File(filePath);
-        FileWriter writer = new FileWriter(filePath);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             List<String> a = reader.lines().toList();
             for (String item: a) {
                 String[] string = item.split(";");
+                System.out.println(item);
                 if(string.length == 3) {
                     Contact cur = new Contact();
                     cur.setFullName(string[0]);
@@ -41,6 +42,7 @@ public class InitContacts {
             e.printStackTrace();
         }
 
+        System.out.println(contactList.size());
         return contactList;
     }
 }
