@@ -13,7 +13,7 @@ public class InitContacts {
     public InitContacts(){}
 
     public List<Contact> getContactList(String filePath) throws IOException {
-        System.out.println("Initialization list of contacts "+ filePath);
+        System.out.println("Initialization list of contacts " + filePath);
         if(filePath == null){
             return new ArrayList<>();
         }
@@ -23,6 +23,7 @@ public class InitContacts {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             List<String> a = reader.lines().toList();
+            System.out.println(a.size());
             for (String item: a) {
                 String[] string = item.split(";");
                 System.out.println(item);

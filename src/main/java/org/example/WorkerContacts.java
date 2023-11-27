@@ -68,7 +68,10 @@ public class WorkerContacts {
                 break;
             }
         }
-
+        if(index == -1) {
+            System.out.println("Контакт не найден");
+            return;
+        }
         contactList.remove(index);
         System.out.println("Контакт успешно удален");
     }
@@ -81,7 +84,7 @@ public class WorkerContacts {
     }
 
     private void addContact(){
-        System.out.println("Введите данные нового контакта в формате");
+        System.out.println("Введите данные нового контакта в формате NAME;PHONE;EMAIL");
         Scanner scanner = new Scanner(System.in);
         String inputData = scanner.nextLine();
 
